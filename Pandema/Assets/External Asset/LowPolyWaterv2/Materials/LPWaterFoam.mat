@@ -52,7 +52,7 @@ Material:
     - _Distort: 1
     - _Distortion: 1
     - _EdgeBlend: 1
-    - _EnableShadows: 1
+    - _EnableShadows: 0
     - _FoamScale: 20
     - _FoamSpeed: 0.3
     - _FoamSpread: 1
