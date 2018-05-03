@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &324990886
 Light:
   m_ObjectHideFlags: 0
@@ -1314,9 +1314,9 @@ Light:
   m_GameObject: {fileID: 769564561}
   m_Enabled: 1
   serializedVersion: 8
-  m_Type: 3
+  m_Type: 1
   m_Color: {r: 0.9411765, g: 0.49019608, b: 0.2, a: 1}
-  m_Intensity: 4.67
+  m_Intensity: 3.48
   m_Range: 539.73474
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1329,7 +1329,7 @@ Light:
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
+  m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
