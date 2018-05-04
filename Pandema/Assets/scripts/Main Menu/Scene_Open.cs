@@ -15,14 +15,14 @@ public class Scene_Open : MonoBehaviour {
     public void Start()
     {
         syshour = System.DateTime.Now.Hour;
-        if(syshour>8 && syshour<14)
+        if(syshour>=4 && syshour<14)
         {
             for(i=0;i<morn.Length;i++)
             {
                 morn[i].gameObject.SetActive(true);
             }
         }
-        if (syshour > 14 && syshour < 19)
+        if (syshour >= 14 && syshour <= 19)
         {
             for (i = 0; i < sunset.Length; i++)
             {
