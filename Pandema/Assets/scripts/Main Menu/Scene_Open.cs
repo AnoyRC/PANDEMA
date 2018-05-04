@@ -6,37 +6,68 @@ using UnityEngine.SceneManagement;
 public class Scene_Open : MonoBehaviour {
     public Animator anim;
     public string NameOfScene;
-    public GameObject[] night;
-    public GameObject[] morn;
-    public GameObject[] sunset;
-    private int i = 0;
-    private int syshour;
-
-    public void Start()
+    private int System_Hour;
+    public bool TurnOnMorning;
+   public bool TurnOnAfternoon;
+    public bool TurnOnNight;
+    public Light Light;
+    public Color MorningColor;
+    public Vector3 MorningRotation;
+    public Color AfternoonColor;
+    public Vector3 AfternoonRotation;
+    public Color NightColor;
+    public Vector3 NightRotation;
+    private void Start()
     {
-        syshour = System.DateTime.Now.Hour;
-        if(syshour>=4 && syshour<14)
+        System_Hour = System.DateTime.Now.Hour;
+        if (System_Hour >= 4 && System_Hour < 14)
         {
-            for(i=0;i<morn.Length;i++)
-            {
-                morn[i].gameObject.SetActive(true);
-            }
+
+            Light.color = MorningColor;
+            Light.gameObject.transform.eulerAngles = MorningRotation;
+            TurnOnMorning = true;
         }
-        if (syshour >= 14 && syshour <= 19)
+        else if (System_Hour >= 14 && System_Hour < 19)
         {
-            for (i = 0; i < sunset.Length; i++)
-            {
-                sunset[i].gameObject.SetActive(true);
-            }
+            Light.color = AfternoonColor;
+            Light.gameObject.transform.eulerAngles = AfternoonRotation;
+            TurnOnAfternoon = true;
         }
         else
         {
-            for (i = 0; i < night.Length; i++)
-            {
-                night[i].gameObject.SetActive(true);
-            }
+            Light.color = NightColor;
+            Light.gameObject.transform.eulerAngles = NightRotation;
+            TurnOnNight = true;
         }
+        
+
     }
+    private void Update()
+    {
+        if (TurnOnMorning)
+        {
+            Light.color = MorningColor;
+            Light.gameObject.transform.eulerAngles = MorningRotation;
+            TurnOnNight = false;
+            TurnOnAfternoon = false;
+        }
+        else if (TurnOnAfternoon)
+        {
+            Light.color = AfternoonColor;
+            Light.gameObject.transform.eulerAngles = AfternoonRotation;
+            TurnOnMorning = false;
+            TurnOnNight = false;
+        }
+        else if (TurnOnNight)
+        {
+            Light.color = NightColor;
+            Light.gameObject.transform.eulerAngles = NightRotation;
+            TurnOnAfternoon = false;
+            TurnOnMorning = false;
+        }
+        
+    }
+
     public void Scene()
     {
         anim.SetBool("1", true);
