@@ -8,3 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scene/main menu.unity
     guid: a596b28fbc2084d41b4ff0ddaf388acf
+  - enabled: 1
+    path: Assets/scene/Pandema_main.unity
+    guid: ed8db2311aa1ab345b128b6f66d409cc
+  m_configObjects: {}
