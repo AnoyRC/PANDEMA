@@ -12,10 +12,13 @@ public class Scene_Open : MonoBehaviour {
     public bool TurnOnNight;
     public Light Light;
     public Color MorningColor;
+    public float morn_intensity;
     public Vector3 MorningRotation;
     public Color AfternoonColor;
+    public float noon_intensity;
     public Vector3 AfternoonRotation;
     public Color NightColor;
+    public float night_intensity;
     public Vector3 NightRotation;
     private void Start()
     {
@@ -39,7 +42,6 @@ public class Scene_Open : MonoBehaviour {
             Light.gameObject.transform.eulerAngles = NightRotation;
             TurnOnNight = true;
         }
-        
 
     }
     private void Update()
@@ -48,6 +50,7 @@ public class Scene_Open : MonoBehaviour {
         {
             Light.color = MorningColor;
             Light.gameObject.transform.eulerAngles = MorningRotation;
+            Light.intensity = morn_intensity;
             TurnOnNight = false;
             TurnOnAfternoon = false;
         }
@@ -55,6 +58,7 @@ public class Scene_Open : MonoBehaviour {
         {
             Light.color = AfternoonColor;
             Light.gameObject.transform.eulerAngles = AfternoonRotation;
+            Light.intensity = noon_intensity;
             TurnOnMorning = false;
             TurnOnNight = false;
         }
@@ -62,9 +66,11 @@ public class Scene_Open : MonoBehaviour {
         {
             Light.color = NightColor;
             Light.gameObject.transform.eulerAngles = NightRotation;
+            Light.intensity = night_intensity;
             TurnOnAfternoon = false;
             TurnOnMorning = false;
         }
+     
         
     }
 
