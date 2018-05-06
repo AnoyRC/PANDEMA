@@ -11,6 +11,8 @@ public class Scene_Open : MonoBehaviour {
     public GameObject morn_objs;
     public GameObject noon_objs;
     public GameObject night_objs;
+    public GameObject _Camera;
+    public Vector3[] CamPositions;
 
     private void Start()
     {
@@ -18,14 +20,17 @@ public class Scene_Open : MonoBehaviour {
         if (System_Hour >= 4 && System_Hour < 14)
         {
             morn_objs.gameObject.SetActive(true);
+            _Camera.transform.position = CamPositions[0];
         }
         else if (System_Hour >= 14 && System_Hour < 19)
         {
             noon_objs.gameObject.SetActive(true);
+            _Camera.transform.position = CamPositions[1];
         }
         else
         {
             night_objs.gameObject.SetActive(true);
+            _Camera.transform.position = CamPositions[2];
         }
 
     }
