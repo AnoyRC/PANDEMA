@@ -7,71 +7,31 @@ public class Scene_Open : MonoBehaviour {
     public Animator anim;
     public string NameOfScene;
     private int System_Hour;
-    public bool TurnOnMorning;
-   public bool TurnOnAfternoon;
-    public bool TurnOnNight;
-    public Light Light;
-    public Color MorningColor;
-    public float morn_intensity;
-    public Vector3 MorningRotation;
-    public Color AfternoonColor;
-    public float noon_intensity;
-    public Vector3 AfternoonRotation;
-    public Color NightColor;
-    public float night_intensity;
-    public Vector3 NightRotation;
+    private int i;
+    public GameObject morn_objs;
+    public GameObject noon_objs;
+    public GameObject night_objs;
+
     private void Start()
     {
         System_Hour = System.DateTime.Now.Hour;
         if (System_Hour >= 4 && System_Hour < 14)
         {
-
-            Light.color = MorningColor;
-            Light.gameObject.transform.eulerAngles = MorningRotation;
-            TurnOnMorning = true;
+            morn_objs.gameObject.SetActive(true);
         }
         else if (System_Hour >= 14 && System_Hour < 19)
         {
-            Light.color = AfternoonColor;
-            Light.gameObject.transform.eulerAngles = AfternoonRotation;
-            TurnOnAfternoon = true;
+            noon_objs.gameObject.SetActive(true);
         }
         else
         {
-            Light.color = NightColor;
-            Light.gameObject.transform.eulerAngles = NightRotation;
-            TurnOnNight = true;
+            night_objs.gameObject.SetActive(true);
         }
 
     }
     private void Update()
     {
-        if (TurnOnMorning)
-        {
-            Light.color = MorningColor;
-            Light.gameObject.transform.eulerAngles = MorningRotation;
-            Light.intensity = morn_intensity;
-            TurnOnNight = false;
-            TurnOnAfternoon = false;
-        }
-        else if (TurnOnAfternoon)
-        {
-            Light.color = AfternoonColor;
-            Light.gameObject.transform.eulerAngles = AfternoonRotation;
-            Light.intensity = noon_intensity;
-            TurnOnMorning = false;
-            TurnOnNight = false;
-        }
-        else if (TurnOnNight)
-        {
-            Light.color = NightColor;
-            Light.gameObject.transform.eulerAngles = NightRotation;
-            Light.intensity = night_intensity;
-            TurnOnAfternoon = false;
-            TurnOnMorning = false;
-        }
-     
-        
+           
     }
 
     public void Scene()
